@@ -5,7 +5,7 @@ var _lastPostOffsetTop = 0;
 var autoPageChecker = setInterval(function() {
 	var scrollTop = $("html").scrollTop();
 	$('#log').html(" -- " + scrollTop + " / " + Math.floor(_lastPostOffsetTop));
-	var url = "http://uriuriuriu.tumblr.com/page/" + _cntPager;
+	var url = "/page/" + _cntPager;
 	if(_appendingFlg){
 		$('#logText').html("<a href='" + url + "'>" + url +"</a> is loaded.");
 		return;

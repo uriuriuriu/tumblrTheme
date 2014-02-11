@@ -52,16 +52,16 @@ img .notes { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
 .notes img { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
 .disqus { font-family: Georgia, 'Times New Roman', Times !important; size: $fs_big05; line-height:150% !important; color:$col_base !important; }
 .regular_post_body img {max-width: 100%;}
-
 .search_query {font-style: italic;}
-.nav_menu, .nav_credit{
+$nav_padding:12px;
+.nav_menu, .nav_credit, .nav_log{
 	position:fixed;
 	-webkit-writing-mode: vertical-rl;
 	-moz-writing-mode: vertical-rl;
 	-ms-writing-mode: vertical-rl;
 	-o-writing-mode: vertical-rl;
 	writing-mode: vertical-rl;
-	right:12px;
 }
-.nav_menu{top:12px;}
-.nav_credit{bottom:12px;}
+.nav_menu{top:$nav_padding; right:$nav_padding;}
+.nav_credit{bottom:$nav_padding; left:$nav_padding;}
+.nav_log{top:$nav_padding; left:$nav_padding;}
