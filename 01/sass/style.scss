@@ -3,11 +3,65 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+ @import "compass/reset";
+$fs_base:12px;
+$fs_sml10:10px;
+$fs_big05:16px;
+$fs_big10:$fs_base * 2;
+$fs_big20:$fs_base * 3;
+$fs_big30:62px;
+$col_base:#333;
+$col_fade20:#666;
+$col_fade30:#999;
+$col_bg:#fff;
+$col_theme:#f9fc7e;
 
-.aa{
-	color:red;
-	div{
-		color:pink;
-	}
+/* base setting */
+*{box-sizing: border-box;}
+body, html {background: $col_bg; margin:0px; padding:20px; border:0px; font-family: Georgia, 'Times New Roman', Times; font-size: $fs_big05; line-height:150%; color:$col_base;}
+pre {font-size: $fs_sml10;}
+a {color:$col_base; text-decoration: none; padding: 1px 2px; background: $col_theme;}
+a:hover {color: $col_fade20; background: none;}
+h1, h2, h3, h4 {color:$col_fade20; font-weight: normal; margin-bottom:0px;}
+h1 {font-size:$fs_big20;}
+h2 {}
+h3 {font-weight: normal !important;}
+h4 {}
+img {background: $col_bg !important; border: 1px solid $col_fade30; padding: 5px; margin: 0px;}
+img a {text-decoration: none !important; background: $col_bg !important; margin: 0px;}
+input { border: 1px solid $col_fade30; }
+.photo a, .disqus a { text-decoration: none !important; background: $col_bg !important; }
+/* wrapper setting */
+.header { margin-bottom: 20px; }
+.post{padding-top:10px;}
+.wrapper { width: 520px; margin: auto; }
+.main { margin: 50px 0px; }
+.datetime { font-size: $fs_base; line-height: 150%; color: $col_fade20; position:relative; float:left; margin-left:-250px; padding-right: 25px; border-right: 1px solid $col_fade30; width: 200px; text-align: right; clear: both; }
+.navleft { font-size: $fs_base; position: relative; float: left; }
+.navright { font-size: $fs_base; position: relative; float: right; }
+.navcenter { font-size: $fs_base; text-align:center; width: 500px; }
+.navtext { font-size: $fs_base; text-align:left; }
+.datetime a { color: $col_fade20; }
+.post { padding-bottom: 30px; }
+.short_quote { margin: 0px; padding: 0px; font-size:$fs_big30; line-height: 110%; color: $col_fade20; }
+.medium_quote { margin: 0px; padding: 0px; font-size:$fs_big20; line-height: 115%; color: $col_fade20; }
+.long_quote { margin: 0px; padding: 0px; font-size:$fs_big10; line-height: 130%; color: $col_fade20; }
+a .notes { text-decoration: none !important; background: none; }
+.notes a { text-decoration: none !important; background: none; }
+img .notes { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
+.notes img { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
+.disqus { font-family: Georgia, 'Times New Roman', Times !important; size: $fs_big05; line-height:150% !important; color:$col_base !important; }
+.regular_post_body img {max-width: 100%;}
+
+.search_query {font-style: italic;}
+.nav_menu, .nav_credit{
+	position:fixed;
+	-webkit-writing-mode: vertical-rl;
+	-moz-writing-mode: vertical-rl;
+	-ms-writing-mode: vertical-rl;
+	-o-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
+	right:12px;
 }
+.nav_menu{top:12px;}
+.nav_credit{bottom:12px;}
