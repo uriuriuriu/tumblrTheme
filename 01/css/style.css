@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Economica);
 /* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 17, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
@@ -26,114 +27,117 @@ a img { border: none; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
 /* base setting */
-/* line 20, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
 * { box-sizing: border-box; }
 
-/* line 21, ../sass/style.scss */
-body, html { background: white; margin: 0px; padding: 20px; border: 0px; font-family: Georgia, 'Times New Roman', Times; font-size: 16px; line-height: 150%; color: #333333; }
-
-/* line 22, ../sass/style.scss */
-pre { font-size: 10px; }
-
-/* line 23, ../sass/style.scss */
-a { color: #333333; text-decoration: none; padding: 1px 2px; background: #f9fc7e; }
-
-/* line 24, ../sass/style.scss */
-a:hover { color: #666666; background: none; }
-
 /* line 25, ../sass/style.scss */
-h1, h2, h3, h4 { color: #666666; font-weight: normal; margin-bottom: 0px; }
+body, html { background: #131513; margin: 0px; padding: 0; border: 0px; font-family: "Economica", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; font-size: 16px; line-height: 150%; color: #7d98a3; }
 
 /* line 26, ../sass/style.scss */
-h1 { font-size: 36px; }
+body { background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='200px' height='200px'> <g> <circle cx ='10.5' cy ='10.5' r ='1.5' style='fill:#285045;stroke:none'/> <line x1='7.5' y1='10.5' x2='13.5' y2='10.5' style='stroke:#284550;stroke-width:1'/> <line x1='10.5' y1='7.5' x2='10.5' y2='13.5' style='stroke:#284550;stroke-width:1'/> </g> </svg>"), url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='40px' height='40px'> <g><circle cx ='10.5' cy ='10.5' r ='1' style='fill:#183540;stroke:none'/></g> </svg>"), url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='120px' height='120px'> <line x1='0' y1='10.5' x2='120' y2='10.5' style='stroke:#062024;stroke-width:1'/> <line x1='10.5' y1='0' x2='10.5' y2='120' style='stroke:#062024;stroke-width:1'/> </svg>"), url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='200px' height='200px'> <g> <rect x='0' y='0' width='200' height='200' fill='#131513' opacity='0.98' /> </g> </svg>"), url("https://dl.dropboxusercontent.com/u/90712768/img/sea.jpg"); background-repeat: repeat, repeat, repeat, repeat ,no-repeat; background-attachment: fixed, scroll, scroll, scroll, fixed; background-size: auto, auto, auto, auto, 100%; padding: 20px; }
 
-/* line 28, ../sass/style.scss */
-h3 { font-weight: normal !important; }
+/* line 58, ../sass/style.scss */
+html { border-left: 10px solid rgba(46, 113, 204, 0.2); border-right: 10px solid rgba(46, 113, 204, 0.2); }
 
-/* line 30, ../sass/style.scss */
-img { background: white !important; border: 1px solid #999999; padding: 5px; margin: 0px; }
+/* line 62, ../sass/style.scss */
+pre { font-size: 10px; }
 
-/* line 31, ../sass/style.scss */
-img a { text-decoration: none !important; background: white !important; margin: 0px; }
+/* line 63, ../sass/style.scss */
+a { color: #7d98a3; text-decoration: none; padding: 1px 2px; background: rgba(46, 113, 204, 0.2); }
 
-/* line 32, ../sass/style.scss */
-input { border: 1px solid #999999; }
-
-/* line 33, ../sass/style.scss */
-.photo a, .disqus a { text-decoration: none !important; background: white !important; }
-
-/* wrapper setting */
-/* line 35, ../sass/style.scss */
-.header { margin-bottom: 20px; }
-
-/* line 36, ../sass/style.scss */
-.post { padding-top: 10px; }
-
-/* line 37, ../sass/style.scss */
-.wrapper { width: 520px; margin: auto; }
-
-/* line 38, ../sass/style.scss */
-.main { margin: 50px 0px; }
-
-/* line 39, ../sass/style.scss */
-.datetime { font-size: 12px; line-height: 150%; color: #666666; position: relative; float: left; margin-left: -250px; padding-right: 25px; border-right: 1px solid #999999; width: 200px; text-align: right; clear: both; }
-
-/* line 40, ../sass/style.scss */
-.navleft { font-size: 12px; position: relative; float: left; }
-
-/* line 41, ../sass/style.scss */
-.navright { font-size: 12px; position: relative; float: right; }
-
-/* line 42, ../sass/style.scss */
-.navcenter { font-size: 12px; text-align: center; width: 500px; }
-
-/* line 43, ../sass/style.scss */
-.navtext { font-size: 12px; text-align: left; }
-
-/* line 44, ../sass/style.scss */
-.datetime a { color: #666666; }
-
-/* line 45, ../sass/style.scss */
-.post { padding-bottom: 30px; }
-
-/* line 46, ../sass/style.scss */
-.short_quote { margin: 0px; padding: 0px; font-size: 62px; line-height: 110%; color: #666666; }
-
-/* line 47, ../sass/style.scss */
-.medium_quote { margin: 0px; padding: 0px; font-size: 36px; line-height: 115%; color: #666666; }
-
-/* line 48, ../sass/style.scss */
-.long_quote { margin: 0px; padding: 0px; font-size: 24px; line-height: 130%; color: #666666; }
-
-/* line 49, ../sass/style.scss */
-a .notes { text-decoration: none !important; background: none; }
-
-/* line 50, ../sass/style.scss */
-.notes a { text-decoration: none !important; background: none; }
-
-/* line 51, ../sass/style.scss */
-img .notes { margin: 0px; padding: 3px; border: 1px solid #999999; }
-
-/* line 52, ../sass/style.scss */
-.notes img { margin: 0px; padding: 3px; border: 1px solid #999999; }
-
-/* line 53, ../sass/style.scss */
-.disqus { font-family: Georgia, 'Times New Roman', Times !important; size: 16px; line-height: 150% !important; color: #333333 !important; }
-
-/* line 54, ../sass/style.scss */
-.regular_post_body img { max-width: 100%; }
-
-/* line 55, ../sass/style.scss */
-.search_query { font-style: italic; }
-
-/* line 57, ../sass/style.scss */
-.nav_menu, .nav_credit, .nav_log { position: fixed; -webkit-writing-mode: vertical-rl; -moz-writing-mode: vertical-rl; -ms-writing-mode: vertical-rl; -o-writing-mode: vertical-rl; writing-mode: vertical-rl; }
+/* line 64, ../sass/style.scss */
+a:hover { color: #4d646d; background: none; }
 
 /* line 65, ../sass/style.scss */
-.nav_menu { top: 12px; right: 12px; }
+h1, h2, h3, h4 { color: #4d646d; font-weight: normal; margin-bottom: 0px; }
 
 /* line 66, ../sass/style.scss */
+h1 { font-size: 36px; }
+
+/* line 68, ../sass/style.scss */
+h3 { font-weight: normal !important; }
+
+/* line 70, ../sass/style.scss */
+img { background: #131513 !important; border: 1px solid #0e1213; padding: 5px; margin: 0px; }
+
+/* line 71, ../sass/style.scss */
+img a { text-decoration: none !important; background: #131513 !important; margin: 0px; }
+
+/* line 72, ../sass/style.scss */
+input { border: 1px solid #0e1213; }
+
+/* line 73, ../sass/style.scss */
+.photo a, .disqus a { text-decoration: none !important; background: #131513 !important; }
+
+/* wrapper setting */
+/* line 75, ../sass/style.scss */
+.header { margin-bottom: 20px; }
+
+/* line 76, ../sass/style.scss */
+.post { padding: 10px 10px 30px 10px; -webkit-border-radius: 4px 4px; -moz-border-radius: 4px / 4px; border-radius: 4px / 4px; border: 4px double rgba(46, 113, 204, 0.2); margin-bottom: 30px; }
+
+/* line 77, ../sass/style.scss */
+.wrapper { width: 548px; margin: auto; }
+
+/* line 78, ../sass/style.scss */
+.main { margin: 50px 0px; }
+
+/* line 79, ../sass/style.scss */
+.datetime { font-size: 12px; line-height: 150%; color: #4d646d; position: relative; float: left; margin-left: -250px; padding-right: 25px; border-right: 1px solid #0e1213; width: 200px; text-align: right; clear: both; }
+
+/* line 80, ../sass/style.scss */
+.navleft { font-size: 12px; position: relative; float: left; }
+
+/* line 81, ../sass/style.scss */
+.navright { font-size: 12px; position: relative; float: right; }
+
+/* line 82, ../sass/style.scss */
+.navcenter { font-size: 12px; text-align: center; width: 500px; }
+
+/* line 83, ../sass/style.scss */
+.navtext { font-size: 12px; text-align: left; }
+
+/* line 84, ../sass/style.scss */
+.datetime a { color: #4d646d; }
+
+/* line 85, ../sass/style.scss */
+.short_quote { margin: 0px; padding: 0px; font-size: 62px; line-height: 110%; color: #7d98a3; }
+
+/* line 86, ../sass/style.scss */
+.medium_quote { margin: 0px; padding: 0px; font-size: 36px; line-height: 115%; color: #7d98a3; }
+
+/* line 87, ../sass/style.scss */
+.long_quote { margin: 0px; padding: 0px; font-size: 24px; line-height: 130%; color: #7d98a3; }
+
+/* line 88, ../sass/style.scss */
+a .notes { text-decoration: none !important; background: none; }
+
+/* line 89, ../sass/style.scss */
+.notes a { text-decoration: none !important; background: none; }
+
+/* line 90, ../sass/style.scss */
+img .notes { margin: 0px; padding: 3px; border: 1px solid #0e1213; }
+
+/* line 91, ../sass/style.scss */
+.notes img { margin: 0px; padding: 3px; border: 1px solid #0e1213; }
+
+/* line 92, ../sass/style.scss */
+.disqus { font-family: "Economica", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif !important; size: 16px; line-height: 150% !important; color: #7d98a3 !important; }
+
+/* line 93, ../sass/style.scss */
+.regular_post_body img { max-width: 100%; }
+
+/* line 94, ../sass/style.scss */
+.search_query { font-style: italic; }
+
+/* line 96, ../sass/style.scss */
+.nav_menu, .nav_credit, .nav_log { position: fixed; -webkit-writing-mode: vertical-rl; -moz-writing-mode: vertical-rl; -ms-writing-mode: vertical-rl; -o-writing-mode: vertical-rl; writing-mode: vertical-rl; letter-spacing: 0.1em; }
+
+/* line 105, ../sass/style.scss */
+.nav_menu { top: 12px; right: 12px; }
+
+/* line 106, ../sass/style.scss */
 .nav_credit { bottom: 12px; left: 12px; }
 
-/* line 67, ../sass/style.scss */
+/* line 107, ../sass/style.scss */
 .nav_log { top: 12px; left: 12px; }

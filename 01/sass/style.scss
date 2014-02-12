@@ -3,22 +3,62 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
- @import "compass/reset";
+@import "compass/reset";
+@import "compass/css3";
+
 $fs_base:12px;
 $fs_sml10:10px;
 $fs_big05:16px;
 $fs_big10:$fs_base * 2;
 $fs_big20:$fs_base * 3;
 $fs_big30:62px;
-$col_base:#333;
-$col_fade20:#666;
-$col_fade30:#999;
-$col_bg:#fff;
-$col_theme:#f9fc7e;
+@import url(http://fonts.googleapis.com/css?family=Economica);
+$col_base:#7d98a3;
+$col_fade20:darken($col_base, 20%);
+$col_fade30:darken($col_base, 50%);
+$col_bg:#131513;
+$col_theme:rgba(46,113,204,.2);
+$fontFamily_base: 'Economica', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 
 /* base setting */
 *{box-sizing: border-box;}
-body, html {background: $col_bg; margin:0px; padding:20px; border:0px; font-family: Georgia, 'Times New Roman', Times; font-size: $fs_big05; line-height:150%; color:$col_base;}
+body, html {background: $col_bg; margin:0px; padding:0; border:0px; font-family: $fontFamily_base; font-size: $fs_big05; line-height:150%; color:$col_base;}
+body{
+	background-image:
+		url("data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='200px' height='200px'>
+				<g>
+					<circle cx ='10.5' cy ='10.5' r ='1.5' style='fill:#285045;stroke:none'/>
+					<line x1='7.5' y1='10.5' x2='13.5' y2='10.5' style='stroke:#284550;stroke-width:1'/>
+					<line x1='10.5' y1='7.5' x2='10.5' y2='13.5' style='stroke:#284550;stroke-width:1'/>
+				</g>
+			</svg>"
+		),url("data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='40px' height='40px'>
+				<g><circle cx ='10.5' cy ='10.5' r ='1' style='fill:#183540;stroke:none'/></g>
+			</svg>"
+		),url("data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='120px' height='120px'>
+				<line x1='0' y1='10.5' x2='120' y2='10.5' style='stroke:#062024;stroke-width:1'/>
+				<line x1='10.5' y1='0' x2='10.5' y2='120' style='stroke:#062024;stroke-width:1'/>
+			</svg>"
+		),url("data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='200px' height='200px'>
+				<g>
+					<rect x='0' y='0' width='200' height='200' fill='" + $col_bg + "' opacity='0.98' />
+				</g>
+			</svg>"
+		),url("https://dl.dropboxusercontent.com/u/90712768/img/sea.jpg")
+	;
+	background-repeat: repeat, repeat, repeat, repeat ,no-repeat;
+	background-attachment: fixed, scroll, scroll, scroll, fixed;
+	background-size: auto, auto, auto, auto, 100%;
+	padding:20px;
+}
+html{
+	border-left: 10px solid $col_theme;
+	border-right: 10px solid $col_theme;
+}
 pre {font-size: $fs_sml10;}
 a {color:$col_base; text-decoration: none; padding: 1px 2px; background: $col_theme;}
 a:hover {color: $col_fade20; background: none;}
@@ -33,8 +73,8 @@ input { border: 1px solid $col_fade30; }
 .photo a, .disqus a { text-decoration: none !important; background: $col_bg !important; }
 /* wrapper setting */
 .header { margin-bottom: 20px; }
-.post{padding-top:10px;}
-.wrapper { width: 520px; margin: auto; }
+.post{padding:10px 10px 30px 10px; @include border-radius(4px, 4px); border:4px double $col_theme; margin-bottom:30px;}
+.wrapper { width: 548px; margin: auto; }
 .main { margin: 50px 0px; }
 .datetime { font-size: $fs_base; line-height: 150%; color: $col_fade20; position:relative; float:left; margin-left:-250px; padding-right: 25px; border-right: 1px solid $col_fade30; width: 200px; text-align: right; clear: both; }
 .navleft { font-size: $fs_base; position: relative; float: left; }
@@ -42,15 +82,14 @@ input { border: 1px solid $col_fade30; }
 .navcenter { font-size: $fs_base; text-align:center; width: 500px; }
 .navtext { font-size: $fs_base; text-align:left; }
 .datetime a { color: $col_fade20; }
-.post { padding-bottom: 30px; }
-.short_quote { margin: 0px; padding: 0px; font-size:$fs_big30; line-height: 110%; color: $col_fade20; }
-.medium_quote { margin: 0px; padding: 0px; font-size:$fs_big20; line-height: 115%; color: $col_fade20; }
-.long_quote { margin: 0px; padding: 0px; font-size:$fs_big10; line-height: 130%; color: $col_fade20; }
+.short_quote { margin: 0px; padding: 0px; font-size:$fs_big30; line-height: 110%; color: $col_base; }
+.medium_quote { margin: 0px; padding: 0px; font-size:$fs_big20; line-height: 115%; color: $col_base; }
+.long_quote { margin: 0px; padding: 0px; font-size:$fs_big10; line-height: 130%; color: $col_base; }
 a .notes { text-decoration: none !important; background: none; }
 .notes a { text-decoration: none !important; background: none; }
 img .notes { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
 .notes img { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
-.disqus { font-family: Georgia, 'Times New Roman', Times !important; size: $fs_big05; line-height:150% !important; color:$col_base !important; }
+.disqus { font-family: $fontFamily_base !important; size: $fs_big05; line-height:150% !important; color:$col_base !important; }
 .regular_post_body img {max-width: 100%;}
 .search_query {font-style: italic;}
 $nav_padding:12px;
@@ -61,6 +100,7 @@ $nav_padding:12px;
 	-ms-writing-mode: vertical-rl;
 	-o-writing-mode: vertical-rl;
 	writing-mode: vertical-rl;
+	letter-spacing: 0.1em;
 }
 .nav_menu{top:$nav_padding; right:$nav_padding;}
 .nav_credit{bottom:$nav_padding; left:$nav_padding;}

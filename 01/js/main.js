@@ -2,7 +2,9 @@ $(function () {
 var _cntPager = 2;
 var _appendingFlg = false;
 var _lastPostOffsetTop = 0;
+var _endFlg = false;
 var autoPageChecker = setInterval(function() {
+	if(_endFlg)return;
 	var scrollTop = $("html").scrollTop();
 	$('#log').html(" -- " + scrollTop + " / " + Math.floor(_lastPostOffsetTop));
 	var url = "/page/" + _cntPager;
@@ -34,8 +36,8 @@ var autoPageChecker = setInterval(function() {
 
 // jk move
 $(document).bind('keydown', 'j', function(){
+	var nowHeight = Math.floor($("html").scrollTop());
 	$('.main').find('.post').each(function(){
-		var nowHeight = Math.floor($("html").scrollTop());
 		var valHeight = Math.floor($(this).offset().top);
 		if(nowHeight < valHeight){
 			console.log(nowHeight + " to " + valHeight);
@@ -45,8 +47,8 @@ $(document).bind('keydown', 'j', function(){
 	});
 });
 $(document).bind('keydown', 'k', function(){
+	var nowHeight = Math.floor($("html").scrollTop());
 	$($('.main').find('.post').get().reverse()).each(function(){
-		var nowHeight = Math.floor($("html").scrollTop());
 		var valHeight = Math.floor($(this).offset().top);
 		if(valHeight < nowHeight){
 			console.log(nowHeight + " to " + valHeight);
@@ -61,5 +63,11 @@ var moveTo = function(valHeight, callback){
 		easing: 'easeOutCubic'
 	},140, callback);
 }
+
+
+$(document).bind('keydown', 'u', function(){
+	// autoPageCheckerの停止
+	_endFlg = !_endFlg;
+});
 
 });
