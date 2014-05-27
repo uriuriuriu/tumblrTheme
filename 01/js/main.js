@@ -5,7 +5,7 @@ var _lastPostOffsetTop = 0;
 var _endFlg = false;
 var autoPageChecker = setInterval(function() {
 	if(_endFlg)return;
-	var scrollTop = $("html").scrollTop();
+	var scrollTop = $(document).scrollTop();
 	$('#log').html(" -- " + scrollTop + " / " + Math.floor(_lastPostOffsetTop));
 	var url = "/page/" + _cntPager;
 	if(_appendingFlg){
@@ -36,7 +36,7 @@ var autoPageChecker = setInterval(function() {
 
 // jk move
 $(document).bind('keydown', 'j', function(){
-	var nowHeight = Math.floor($("html").scrollTop());
+	var nowHeight = Math.floor($(document).scrollTop());
 	$('.main').find('.post').each(function(){
 		var valHeight = Math.floor($(this).offset().top);
 		if(nowHeight < valHeight){
@@ -47,7 +47,7 @@ $(document).bind('keydown', 'j', function(){
 	});
 });
 $(document).bind('keydown', 'k', function(){
-	var nowHeight = Math.floor($("html").scrollTop());
+	var nowHeight = Math.floor($(document).scrollTop());
 	$($('.main').find('.post').get().reverse()).each(function(){
 		var valHeight = Math.floor($(this).offset().top);
 		if(valHeight < nowHeight){
@@ -57,8 +57,32 @@ $(document).bind('keydown', 'k', function(){
 		};
 	});
 });
+
+
+var _ua = (function(){
+ return {
+  ltIE6:typeof window.addEventListener == "undefined" && typeof document.documentElement.style.maxHeight == "undefined",
+  ltIE7:typeof window.addEventListener == "undefined" && typeof document.querySelectorAll == "undefined",
+  ltIE8:typeof window.addEventListener == "undefined" && typeof document.getElementsByClassName == "undefined",
+  ltIE9:document.uniqueID && typeof window.matchMedia == "undefined",
+  gtIE10:document.uniqueID && window.matchMedia,
+  Trident:document.uniqueID,
+  Gecko:'MozAppearance' in document.documentElement.style,
+  Presto:window.opera,
+  Blink:window.chrome,
+  Webkit:typeof window.chrome == "undefined" && 'WebkitAppearance' in document.documentElement.style,
+  Touch:typeof document.ontouchstart != "undefined",
+  Mobile:typeof window.orientation != "undefined",
+  ltAd4_4:typeof window.orientation != "undefined" && typeof(EventSource) == "undefined",
+  Pointer:window.navigator.pointerEnabled,
+  MSPoniter:window.navigator.msPointerEnabled
+ }
+})();
+
+
 var moveTo = function(valHeight, callback){
-	$($.browser.webkit ? 'body' : 'html').animate({
+//	$($.browser.webkit ? 'body' : 'html').animate({
+	$(_ua.Blink ? 'body' : 'html').animate({
 		scrollTop: valHeight,
 		easing: 'easeOutCubic'
 	},140, callback);
