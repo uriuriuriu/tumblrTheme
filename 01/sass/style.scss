@@ -4,21 +4,46 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
-@import "compass/css3";
+@import "compass/";
+@mixin anims($str) {
+	-o-animation: #{$str};
+	-ms-animation: #{$str};
+	-moz-animation: #{$str};
+	-webkit-animation: #{$str};
+}
 
-$fs_base:12px;
-$fs_sml10:10px;
-$fs_big05:16px;
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes $animation-name {@content;}
+	@-moz-keyframes $animation-name {@content;}
+	@keyframes $animation-name {@content;}
+}
+
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+$fs_base:16px;
+$fs_sml10:$fs_base * 0.7;
+$fs_big05:$fs_base * 1.3;
 $fs_big10:$fs_base * 2;
 $fs_big20:$fs_base * 3;
-$fs_big30:62px;
+$fs_big30:$fs_base * 5.5;
 @import url(http://fonts.googleapis.com/css?family=Economica);
 $col_base:#7d98a3;
+$col_light:#41a5cc;
 $col_fade20:darken($col_base, 20%);
 $col_fade30:darken($col_base, 50%);
 $col_bg:#131513;
 $col_theme:rgba(46,113,204,.2);
-$fontFamily_base: 'Economica', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+//$fontFamily_base: 'Economica', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+$fontFamily_base: 'Economica', 'Hiragino Mincho ProN', serif;
+
 
 /* base setting */
 *{box-sizing: border-box;}
@@ -73,13 +98,32 @@ input { border: 1px solid $col_fade30; }
 .photo a, .disqus a { text-decoration: none !important; background: $col_bg !important; }
 /* wrapper setting */
 .header { margin-bottom: 20px; }
-.post{padding:10px 10px 30px 10px; @include border-radius(4px, 4px); border:4px double $col_theme; margin-bottom:30px;}
-.wrapper { width: 548px; margin: auto; }
+.post{
+	padding:10px 10px 30px 10px;
+	@include border-radius(4px, 4px);
+	border:4px double $col_theme;
+	margin-bottom:30px;
+	transition-property: box-shadow, border, transform;
+	transition-duration: 0.4s;
+	@include transition-timing-function(.92,.3,.63,1);
+	@include transform-origin(50%, 0, 0);
+	@include scale(0.985,0.985);
+
+	img{
+		width:100%;
+		text-align:center;
+	}
+	ol.notes img{
+		width:auto;
+	}
+}
+.wrapper { width: 875px; margin: auto; }
 .main { margin: 50px 0px; }
-.datetime { font-size: $fs_base; line-height: 150%; color: $col_fade20; position:relative; float:left; margin-left:-250px; padding-right: 25px; border-right: 1px solid $col_fade30; width: 200px; text-align: right; clear: both; }
+.datetime { font-size: $fs_sml10; line-height: 150%; color: $col_fade20; position:relative; float: left; margin-left:-220px; width: 200px; text-align: right; clear: both; }
 .navleft { font-size: $fs_base; position: relative; float: left; }
 .navright { font-size: $fs_base; position: relative; float: right; }
-.navcenter { font-size: $fs_base; text-align:center; width: 500px; }
+.navcenter_fix { font-size: $fs_base; text-align:center; width: 500px; }
+.navcenter { font-size: $fs_base; position: relative; text-align:center; width: 500px; }
 .navtext { font-size: $fs_base; text-align:left; }
 .datetime a { color: $col_fade20; }
 .short_quote { margin: 0px; padding: 0px; font-size:$fs_big30; line-height: 110%; color: $col_base; }
@@ -92,8 +136,9 @@ img .notes { margin: 0px; padding: 3px; border: 1px solid $col_fade30; }
 .disqus { font-family: $fontFamily_base !important; size: $fs_big05; line-height:150% !important; color:$col_base !important; }
 .regular_post_body img {max-width: 100%;}
 .search_query {font-style: italic;}
+
 $nav_padding:12px;
-.nav_menu, .nav_credit, .nav_log{
+.nav_menu, .nav_other, .nav_credit, .nav_log, .nav_jkBtn{
 	position:fixed;
 	-webkit-writing-mode: vertical-rl;
 	-moz-writing-mode: vertical-rl;
@@ -102,6 +147,45 @@ $nav_padding:12px;
 	writing-mode: vertical-rl;
 	letter-spacing: 0.1em;
 }
-.nav_menu{top:$nav_padding; right:$nav_padding;}
+.nav_menu{top:$nav_padding + 20px; right:$nav_padding;}
+.nav_other{bottom:$nav_padding; right:$nav_padding; font-size:$fs_sml10;}
 .nav_credit{bottom:$nav_padding; left:$nav_padding;}
-.nav_log{top:$nav_padding; left:$nav_padding;}
+.nav_log{top:$nav_padding; left:$nav_padding; font-size:$fs_sml10;}
+.nav_jkBtn{top:40%; left:50%; font-size:$fs_sml10; margin:0 auto;}
+.selectPost{
+	@include box-shadow(0 0 20px $col_light);
+	background-color:rgba($col_fade30, 0.6);
+	border-color:#fff;
+	@include scale(1.0,1.0);
+	z-index:200;
+}
+.j_btn, .k_btn{
+	z-index:40000;
+	padding:40px 4px;
+	margin:10px 0;
+	@include border-radius(4px, 4px);
+	border:1px solid $col_theme;
+	color:$col_theme;
+	cursor: pointer;
+}
+.jkbtn_click{
+	@include anims(anim-clickBtn 1.0s cubic-bezier(.92,.3,.63,1));
+}
+
+@include keyframes(anim-clickBtn) {
+  0%   {border-color:$col_theme; color:$col_theme;}
+  10%  {border-color:#fff; color:$col_bg; @include box-shadow(0 0 20px $col_light); background-color:#fff;}
+  100% {border-color:$col_theme; color:$col_theme;}
+}
+
+
+.shown_text{
+	color:$col_fade20;
+}
+.rand_text{
+	background-color:$col_fade20;
+  color:lighten($col_base, 100%);
+}
+.yet_text{
+  color:$col_fade30;
+}
